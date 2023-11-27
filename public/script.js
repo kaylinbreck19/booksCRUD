@@ -9,27 +9,33 @@ $(document).ready(function () {
       return;
     }
 
-    axios.get('https://6553b7405449cfda0f2f14a9.mockapi.io/books')
-      .then(function (response) {
-        displayBooks(response.data);
-      })
-      .catch(function (error) {
+    $.ajax({
+      url: 'https://6553b7405449cfda0f2f14a9.mockapi.io/books',
+      method: 'GET',
+      success: function (response) {
+        displayBooks(response);
+      },
+      error: function (error) {
         console.error('Error fetching books:', error);
         displayBooks([]);
-      });
+      }
+    });
   }
 
   // Function to get books from the API by ID
   function getBooksById(bookId) {
-    axios.get(`https://6553b7405449cfda0f2f14a9.mockapi.io/books/${bookId}`)
-      .then(function (response) {
-        var books = response.data ? [response.data] : [];
+    $.ajax({
+      url: `https://6553b7405449cfda0f2f14a9.mockapi.io/books/${bookId}`,
+      method: 'GET',
+      success: function (response) {
+        var books = response ? [response] : [];
         displayBooks(books);
-      })
-      .catch(function (error) {
+      },
+      error: function (error) {
         console.error('Error fetching books by ID:', error);
         displayBooks([]);
-      });
+      }
+    });
   }
 
   // Function to display books on the page
@@ -73,17 +79,21 @@ $(document).ready(function () {
     var name = $('#name').val();
 
     if (title && name) {
-      axios.post('https://6553b7405449cfda0f2f14a9.mockapi.io/books', {
-        title: title,
-        name: name
-      })
-        .then(function () {
+      $.ajax({
+        url: 'https://6553b7405449cfda0f2f14a9.mockapi.io/books',
+        method: 'POST',
+        data: {
+          title: title,
+          name: name
+        },
+        success: function () {
           // Refresh the book list after adding a new book
           getBooks();
-        })
-        .catch(function (error) {
+        },
+        error: function (error) {
           console.error('Error adding book:', error);
-        });
+        }
+      });
     }
   });
 
@@ -93,16 +103,20 @@ $(document).ready(function () {
     var newTitle = prompt('Enter the new title:');
 
     if (newTitle) {
-      axios.put(`https://6553b7405449cfda0f2f14a9.mockapi.io/books/${bookId}`, {
-        title: newTitle
-      })
-        .then(function () {
+      $.ajax({
+        url: `https://6553b7405449cfda0f2f14a9.mockapi.io/books/${bookId}`,
+        method: 'PUT',
+        data: {
+          title: newTitle
+        },
+        success: function () {
           // Refresh the book list after updating
           getBooks();
-        })
-        .catch(function (error) {
+        },
+        error: function (error) {
           console.error('Error updating book:', error);
-        });
+        }
+      });
     }
   }
 
@@ -110,14 +124,17 @@ $(document).ready(function () {
   function deleteBook() {
     var bookId = $(this).data('bookId');
 
-    axios.delete(`https://6553b7405449cfda0f2f14a9.mockapi.io/books/${bookId}`)
-      .then(function () {
+    $.ajax({
+      url: `https://6553b7405449cfda0f2f14a9.mockapi.io/books/${bookId}`,
+      method: 'DELETE',
+      success: function () {
         // Refresh the book list after deleting
         getBooks();
-      })
-      .catch(function (error) {
+      },
+      error: function (error) {
         console.error('Error deleting book:', error);
-      });
+      }
+    });
   }
 
   // Event handler for the "Get Books" button
