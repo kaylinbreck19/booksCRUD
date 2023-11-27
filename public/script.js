@@ -9,14 +9,17 @@ $(document).ready(function () {
       return;
     }
 
+    // Fetch all books from the API
     $.ajax({
       url: 'https://6553b7405449cfda0f2f14a9.mockapi.io/books',
       method: 'GET',
       success: function (response) {
+        // Display the fetched books
         displayBooks(response);
       },
       error: function (error) {
         console.error('Error fetching books:', error);
+        // Display an empty list in case of an error
         displayBooks([]);
       }
     });
@@ -24,15 +27,19 @@ $(document).ready(function () {
 
   // Function to get books from the API by ID
   function getBooksById(bookId) {
+    // Fetch books by ID from the API
     $.ajax({
       url: `https://6553b7405449cfda0f2f14a9.mockapi.io/books/${bookId}`,
       method: 'GET',
       success: function (response) {
+        // Create an array with the single fetched book or an empty array
         var books = response ? [response] : [];
+        // Display the fetched books
         displayBooks(books);
       },
       error: function (error) {
         console.error('Error fetching books by ID:', error);
+        // Display an empty list in case of an error
         displayBooks([]);
       }
     });
@@ -41,13 +48,16 @@ $(document).ready(function () {
   // Function to display books on the page
   function displayBooks(books) {
     var bookList = $('#bookList');
-    bookList.empty();
+    bookList.empty(); // Clear the display
 
     if (books.length === 0) {
+      // Display a message when no books are available
       bookList.append('<p>No books available.</p>');
     } else {
+      // Create an unordered list for the books
       var ul = $('<ul class="list-group"></ul>');
       books.forEach(function (book) {
+        // Create a list item for each book
         var li = $('<li class="list-group-item"></li>');
         li.text(`${book.title} by ${book.name}`);
 
@@ -63,10 +73,14 @@ $(document).ready(function () {
         updateButton.click(updateBook);
         deleteButton.click(deleteBook);
 
+        // Append buttons to the list item
         li.append(updateButton);
         li.append(deleteButton);
+
+        // Append the list item to the unordered list
         ul.append(li);
       });
+      // Append the unordered list to the bookList container
       bookList.append(ul);
     }
   }
@@ -79,6 +93,7 @@ $(document).ready(function () {
     var name = $('#name').val();
 
     if (title && name) {
+      // Add a new book to the API
       $.ajax({
         url: 'https://6553b7405449cfda0f2f14a9.mockapi.io/books',
         method: 'POST',
@@ -103,6 +118,7 @@ $(document).ready(function () {
     var newTitle = prompt('Enter the new title:');
 
     if (newTitle) {
+      // Update the title of the book in the API
       $.ajax({
         url: `https://6553b7405449cfda0f2f14a9.mockapi.io/books/${bookId}`,
         method: 'PUT',
@@ -124,6 +140,7 @@ $(document).ready(function () {
   function deleteBook() {
     var bookId = $(this).data('bookId');
 
+    // Delete the book from the API
     $.ajax({
       url: `https://6553b7405449cfda0f2f14a9.mockapi.io/books/${bookId}`,
       method: 'DELETE',
@@ -155,8 +172,6 @@ $(document).ready(function () {
     }
   });
 });
-
-
 
 
 

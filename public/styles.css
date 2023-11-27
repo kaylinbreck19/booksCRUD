@@ -1,58 +1,68 @@
-/* styles.css */
-
+/* Body styles */
 body {
-  background-color: #f3f9d2;
-  color: #2f2f2f;
+  background-color: #f3f9d2; /* Set background color for the body */
+  color: #2f2f2f; /* Set text color for the body */
 }
 
+/* Container styles */
 .container {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 50px;
+  background-color: #ffffff; /* Set background color for the container */
+  padding: 20px; /* Add padding inside the container */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+  margin-top: 50px; /* Add top margin to the container */
 }
 
+/* Heading styles */
 h2 {
-  color: #93827f;
-  text-align: center;
+  color: #93827f; /* Set color for heading text */
+  text-align: center; /* Center-align the heading text */
 }
 
+/* Form group styles */
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Add bottom margin for form groups */
 }
 
+/* Primary button styles */
 .btn-primary {
-  background-color: #bdc4a7;
-  border: none;
+  background-color: #bdc4a7; /* Set background color for primary buttons */
+  border: none; /* Remove button border */
 }
 
+/* Primary button hover styles */
 .btn-primary:hover {
-  background-color: #92b4a7;
+  background-color: #92b4a7; /* Change background color on hover for primary buttons */
 }
 
+/* Warning button styles */
 .btn-warning {
-  background-color: #f3f9d2;
-  border: none;
+  background-color: #f3f9d2; /* Set background color for warning buttons */
+  border: none; /* Remove button border */
 }
 
+/* Warning button hover styles */
 .btn-warning:hover {
-  background-color: #bdc4a7;
+  background-color: #bdc4a7; /* Change background color on hover for warning buttons */
 }
 
+/* Danger button styles */
 .btn-danger {
-  background-color: #dc3545;
-  border: none;
+  background-color: #dc3545; /* Set background color for danger buttons */
+  border: none; /* Remove button border */
 }
 
+/* Danger button hover styles */
 .btn-danger:hover {
-  background-color: #bd2130;
+  background-color: #bd2130; /* Change background color on hover for danger buttons */
 }
 
+/* List group item styles */
 .list-group-item {
-  border: none;
+  border: none; /* Remove borders for list group items */
 }
 
+/* List group item hover styles */
 .list-group-item:hover {
-  background-color: #f8f9fa;
+  background-color: #f8f9fa; /* Change background color on hover for list group items */
 }

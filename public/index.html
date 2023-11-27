@@ -3,39 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Set the title of the HTML page -->
     <title>Book CRUD App</title>
+    <!-- Include Bootstrap CSS for styling -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include custom styles from styles.css -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<!-- Main content container -->
 <div class="container mt-4">
+    <!-- Heading for the CRUD Book Library -->
     <h2>CRUD - Book Library</h2>
+    
+    <!-- Form for adding a new book -->
     <form id="bookForm" class="mb-4">
+        <!-- Input for Book Title -->
         <div class="form-group">
             <label for="title">Book Title</label>
             <input type="text" class="form-control" id="title" autocomplete="on" required>
         </div>
+        <!-- Input for Author's Name -->
         <div class="form-group">
             <label for="name">Author's Name</label>
             <input type="text" class="form-control" id="name" autocomplete="on" required>
         </div>
+        <!-- Button to submit the form and add a new book -->
         <button type="submit" class="btn btn-primary">Add Book</button>
     </form>
+    
+    <!-- Search section by Book ID -->
     <div>
         <label for="bookId">Search by ID:</label>
         <input type="text" id="bookId" class="form-control" placeholder="Enter Book ID">
         <button id="getBooksBtn" class="btn btn-success mt-2">Get Books</button>
     </div>
+    
+    <!-- Container to display the list of books -->
     <div id="bookList" class="mt-4"></div>
 </div>
 
+<!-- Include jQuery library -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- Include Bootstrap JavaScript for enhanced UI features -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Include custom JavaScript from script.js -->
 <script src="script.js"></script>
 
 </body>
 </html>
+
 
 
 
